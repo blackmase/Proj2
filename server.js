@@ -19,6 +19,10 @@ db.on('open', () => {
 });
 
 
+app.get('/',(req,res)=>{
+  res.send('your application is working')
+})
+
 
 
 app.listen(process.env.PORT, ()=>{
