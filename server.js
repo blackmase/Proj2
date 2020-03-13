@@ -25,9 +25,83 @@ db.on('open', () => {
 });
 
 
+
+app.put('/blogs/:id', (req,res) =>{
+
+    Blog.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updatedModel) => {
+    res.redirect('/blogs');
+
+    })
+})
+
+// app.put('/blogs/:id', (req,res) =>{
+//
+//     Blog.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updatedComment) => {
+//     res.redirect('/blogs/:id');
+//
+//     })
+// })
+
+
+
 app.get('/',(req,res)=>{
   res.send('your application is working now just gotta get the rest to go')
 })
+
+app.get('/blogs/:id/edit', (req,res)=>{
+    Blog.findById(req.params.id, (error, foundBlog) =>{
+    res.render(
+        'edit.ejs',
+        {
+            blog: foundBlog,
+            img: req.body.img
+        }
+        )
+
+    })
+})
+
+app.delete('/blogs/:id', (req,res) =>{
+    Blog.findByIdAndRemove(req.params.id, (error, data) =>{
+        res.redirect('/blogs');
+    })
+
+})
+
+app.get('/blogs/new', (req, res) => {
+    res.render('new.ejs')
+});
+
+// app.post('/blogs/new', (req,res) =>{
+// 	let newBlog = {
+// 		name: req.body.name,
+// 		description: req.body.description,
+// 		img: req.body.img
+// 	}
+// 	Blog.push(newBlog);
+// 	res.redirect('/blogs')
+// })
+
+app.get('/blogs/:id', (req, res) => {
+    Blog.findById(req.params.id, (error, foundBlog) => {
+        res.render(
+            'show.ejs',
+            {
+                blog:foundBlog
+            }
+        )
+    })
+});
+// app.post('/blogs/:id', (req, res) => {
+//     Blog.findById(req.params.id, (error, foundBlog) => {
+//         res.redirect(
+//             'show.ejs',
+//             {
+//                 blog:foundBlog
+//             }
+//         )
+//     })
+// });
 
 app.get('/blogs', (req, res) => {
     Blog.find({}, (error, allBlogs) => {
@@ -39,6 +113,20 @@ app.get('/blogs', (req, res) => {
         );
     })
 });
+
+app.post('/blogs/', (req, res) => {
+    Blog.create(req.body, (error, createdBlog) => {
+        res.redirect('/blogs');
+    })
+});
+
+// app.post('/blogs/:id', (req, res) => {
+//   Blog.create(req.body, (error, createdComment) => {
+//     res.redirect('/blogs/:id');
+//   })
+// });
+
+
 
 
 app.listen(process.env.PORT, ()=>{

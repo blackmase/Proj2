@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Blog Show Page</h1>
+        Username: <%=blog.name%>
+        <br>
+        Topic:  <%=blog.topic%>.
+        <br>
+        <img src="<%=blog.img%>" height="400px" width="400px">
+        <!-- <script >
+          $url_string="https://www.youtube.com/watch?v=XN7Amgdfi0s&list=PLiN3D25j-z1SbvSCeZZzrmzh_1HhhBnRu&index=32";
+          $url= str_replace('watch?v=','embed/', $url_string);
+        </script> -->
+        <video src="<%=blog.video%>" autoplay poster="posterimage.jpg">
+
+          <!-- <iframe width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        </video>
+        <br>
+        <h3>Blogged</h3>
+        <textarea name="blog" rows="8" cols="80"><%=blog.blog%></textarea>
+        <br>
+
+        <form action="/blogs/<%=blog.id%>" method="POST">
+
+          Comment: <input type="text" name="comment" />
+          <br/>
+          <input type="submit" value="Comment" />
+        </form>
+
+        <div>
+
+        Comment:  <%=blog.comment%>
+
+
+
+        </div>
+
+        <nav>
+            <a href="/blogs">Back to Blogs Index</a>
+        </nav>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Edit Blog Route</h1>
+
+	<form action="/blogs/<%=blog.id%>?_method=PUT" method="POST">
+		Name: <input type="text" name="name" value="<%=blog.name%>"/>
+		Topic: <input type="text" name="topic" value="<%=blog.topic%>"/>
+    Img: <input type="text" name="img" value="<%=blog.img%>" /><br/>
+    Video: <input type="text" name="video" value="<%=blog.video%>" /><br/>
+    Blog:  <textarea name="blog" rows="8" cols="80" name ="blog" value="blog.blog"></textarea>
+		 <br/>
+		<input type="submit" value="Submit Changes">
+	</form>
+</body>
+</html>
