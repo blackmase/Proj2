@@ -15,26 +15,26 @@
           $url_string="https://www.youtube.com/watch?v=XN7Amgdfi0s&list=PLiN3D25j-z1SbvSCeZZzrmzh_1HhhBnRu&index=32";
           $url= str_replace('watch?v=','embed/', $url_string);
         </script> -->
-        <video src="<%=blog.video%>" autoplay poster="posterimage.jpg">
-
-          <!-- <iframe width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-        </video>
+<iframe src="<%=blog.video%>" width="300" height="300"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XN7Amgdfi0s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <br>
         <h3>Blogged</h3>
         <textarea name="blog" rows="8" cols="80"><%=blog.blog%></textarea>
         <br>
 
         <form action="/blogs/<%=blog.id%>" method="POST">
+          <div >
 
-          Comment: <input type="text" name="comment" />
+            <input type="submit" value="Comment" />
+            Comment: <input type="text" name="comment" />
+          </div>
           <br/>
-          <input type="submit" value="Comment" />
         </form>
 
         <div>
 
-        Comment:  <%=blog.comment%>
 
+          Comment:  <%=blog.comment%>
 
 
         </div>

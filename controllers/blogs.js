@@ -98,6 +98,8 @@ router.get('/blogs', (req, res) => {
     })
 });
 
+
+
 router.post('/blogs/', (req, res) => {
     Blog.create(req.body, (error, createdBlog) => {
         res.redirect('/blogs');

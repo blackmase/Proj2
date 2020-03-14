@@ -114,6 +114,7 @@ app.get('/blogs', (req, res) => {
     })
 });
 
+
 app.post('/blogs/', (req, res) => {
     Blog.create(req.body, (error, createdBlog) => {
         res.redirect('/blogs');
