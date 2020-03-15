@@ -98,6 +98,22 @@ router.get('/blogs', (req, res) => {
     })
 });
 
+router.get('/', (req, res) => {
+    if(req.session.user){
+      Blog.find({}, (error, allBlogs) => {
+        res.render(
+          'blogs/index.ejs',
+          {
+            blogs:allBlogs,
+            user:req.session.user
+          }
+        );
+      })
+    } else {
+      res.redirect('/');
+    }
+  });
+
 
 
 router.post('/blogs/', (req, res) => {
