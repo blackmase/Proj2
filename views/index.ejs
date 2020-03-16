@@ -3,24 +3,60 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+
     </head>
-    <body>
-        <h1>Blog Index Page</h1>
-        <ul>
+    <body style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FTRFxR1JP_7Q%2Fhqdefault.jpg&f=1&nofb=1');">
+      <div class="jumbotron text-center">
+        <a href="/users/new">
+          <button type="button" class="btn btn-danger">
+            Create Account
+          </button>
+        </a>
+        <a href="/session/new">
+          <button type="button" class="btn btn-danger">
+            Log In
+          </button>
+        </a>
+
+        <h1>The Conspiracy Network</h1>
+        <div class="row">
+
+        <iframe width="500" height="515" src="https://www.youtube.com/embed/Dx55735EsMo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fsciencevibe.com%2Fwp-content%2Fuploads%2F2017%2F01%2FWashingtonDC-Pentagram-2.jpg&f=1&nofb=1" alt="">
+
+        <iframe width="500" height="515" src="https://www.youtube.com/embed/paTxfIvf0iQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+        <p>WashingtonDC</p>
+      </div>
+      <nav>
+        <button type="button" class="btn btn-danger">
+        <a href="/blogs/new">Create a New Blog</a>
+      </button>
+      </nav>
+
+        <ul class="list-group">
             <% for(let i=0; i < blogs.length; i++) { %>
-                <li>
+              <div class="p-3 mb-2 bg-white text-dark">
+                <li class="list-group-item">
                     <a href="/blogs/<%=blogs[i].id%>">
                         <%=blogs[i].name%>
                     </a>
-                    <form action="/blogs/<%=blogs[i].id%>?_method=DELETE" method="POST">
+                      <form action="/blogs/<%=blogs[i].id%>?_method=DELETE" method="POST">
+                        <button type="button" class="btn btn-dark">
+                          <a href="/blogs/<%=blogs[i].id%>/edit">Edit</a>
+                        </button>
+                        <button type="button" class="btn btn-danger">
                         <input type="submit" name="DELETE" value="DELETE">
-                    </form>
-                    <a href="/blogs/<%=blogs[i].id%>/edit">Edit</a>
+                      </button>
+                      </form>
                 </li>
+              </div>
             <% } %>
         </ul>
-        <nav>
-            <a href="/blogs/new">Create a New Blog</a>
-        </nav>
     </body>
 </html>

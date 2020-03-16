@@ -118,6 +118,7 @@ app.get('/blogs/:id', (req, res) => {
 
 app.get('/blogs', (req, res) => {
     Blog.find({}, (error, allBlogs) => {
+
         res.render(
             'index.ejs',
             {

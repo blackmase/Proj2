@@ -3,47 +3,71 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FTRFxR1JP_7Q%2Fhqdefault.jpg&f=1&nofb=1');">
+      <div class="jumbotron text-center">
+
         <h1>Blog Show Page</h1>
         Username: <%=blog.name%>
         <br>
         Topic:  <%=blog.topic%>.
         <br>
+      </div>
+      <br>
+
+        <h3 class="text-white">Blogged</h3>
+
+
+      <textarea name="blog" rows="8" cols="80"><%=blog.blog%></textarea>
+      <br>
+
+
+
+
+
+
+
+      <nav>
+        <button type="button" class="btn btn-dark">
+          <a href="/blogs" color="red">Back to Blogs Index</a>
+
+        </button>
+      </nav>
+
+      <!-- <div class="row"> -->
+        <div class="jumbotron text-center">
+          <form action="/blogs/<%=blog.id%>" method="POST">
+            <div >
+              <button type="button" class="btn btn-danger">
+
+                <input type="submit" value="Comment" />
+
+              </button>
+              Comment: <input type="text" name="comment" />
+            </div>
+            <br/>
+          </form>
+          <div >
+            Comments:  <%=blog.comment%>
+          </div>
+
         <img src="<%=blog.img%>" height="400px" width="400px">
+        <img src="<%=blog.video%>" height="400px" width="400px">
+      </div>
         <!-- <script >
           $url_string="https://www.youtube.com/watch?v=XN7Amgdfi0s&list=PLiN3D25j-z1SbvSCeZZzrmzh_1HhhBnRu&index=32";
           $url= str_replace('watch?v=','embed/', $url_string);
         </script> -->
+          <div class="jumbotron text-center">
 
           <iframe width="560" height="315" src="https://www.youtube.com/embed/GnV0HAePvAQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XN7Amgdfi0s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <br>
-        <h3>Blogged</h3>
-        <textarea name="blog" rows="8" cols="80"><%=blog.blog%></textarea>
-        <br>
-
-        <form action="/blogs/<%=blog.id%>" method="POST">
-          <div >
-
-            <input type="submit" value="Comment" />
-            Comment: <input type="text" name="comment" />
-          </div>
-          <br/>
-        </form>
-
-        <div>
-
-
-          Comment:  <%=blog.comment%>
-
-
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/XN7Amgdfi0s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
-        <nav>
-            <a href="/blogs">Back to Blogs Index</a>
-        </nav>
+        <!-- </div> -->
     </body>
 </html>
